@@ -1,6 +1,4 @@
-# Mini Diffuser: Supplementary Materials
-
-This folder contains the supplementary media files for the submission: **Mini Diffuser: Fast Multi-task Diffusion Policy Training Using Two-level Mini-batches**.
+# Equivariance Makes Volumetric Grasping Great Again: Supplementary Materials
 
 ## Viewing Options
 
