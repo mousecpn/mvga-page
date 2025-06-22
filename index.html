@@ -765,18 +765,18 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title">123 Diffuser: Fast Multi-task Diffusion Policy Training Using Two-level Mini-batches</h1>
+              <h1 class="title is-1 publication-title">Equivariance Makes Volumetric Grasping Great Again</h1>
               
               <!-- Authors -->
               <div class="is-size-5 publication-authors">
                 <span class="author-block">
-                  <span class="author">Yutong Hu<sup>1</sup>,
-                </span>
-                <span class="author-block">
                   <span class="author">Pinhao Song<sup>1</sup>,
                 </span>
                 <span class="author-block">
-                  <span class="author">Kehan Wen<sup>2</sup>,
+                  <span class="author">Yutong Hu<sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <span class="author">Pengteng Li<sup>2</sup>,
                 </span>
                 <span class="author-block">
                   <span class="author">Renaud Detry<sup>1</sup>
@@ -786,7 +786,7 @@
               <!-- Institutes -->
               <div class="is-size-6 publication-authors">
                 <span class="author-block insts"><sup>1</sup>KU Leuven</span>
-                <span class="author-block insts"><sup>2</sup>ETH Zurich</span>
+                <span class="author-block insts"><sup>2</sup>HKUST(GZ)</span>
               </div>
 
               <!-- Navigation Links -->
@@ -796,21 +796,17 @@
                     <span class="material-symbols-rounded">description</span>
                     Paper
                   </a>
-                  <a href="https://github.com/utomm/mini-diffuse-actor" class="button-link">
+                  <a href="https://github.com/mousecpn/Equivariant-Volumetric-Grasping" class="button-link">
                     <span class="material-symbols-rounded">code</span>
                     Code
                   </a>
-                  <a href="https://huggingface.co/datasets/you2who/minidiffuser/tree/main" class="button-link">
+                  <a href="" class="button-link">
                     <span class="material-symbols-rounded">save</span>
-                    Checkpoints
-                  </a>
-                  <a href="https://wandb.ai/hu2240877635/mini-diff/reports/Mini-Diffuser-Main-Results--VmlldzoxMjA5ODQ2Ng" class="button-link">
-                    <span class="material-symbols-rounded">analytics</span>
-                    WandB Logs
+                    Checkpoints (Coming soon)
                   </a>
                   <a href="https://github.com/utomm/fr3_ws" class="button-link">
                     <span class="material-symbols-rounded">smart_toy</span>
-                    Real World
+                    Real World (Coming soon)
                   </a>
                 </div>
                 
@@ -831,22 +827,13 @@
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
                     <p>
-                    We introduce <b>Mini-Diffuser</b>, a method for training <b>multi-task robot policies</b> that can perform a variety of
-                    tasks using <b>vision and language as input</b>—while training significantly faster and using far less memory than
-                    previous approaches.
-                    
-
-                    The key insight comes from comparing how <b>diffusion models</b> are used in different domains. In image generation,
-                    diffusion models refine <b>high-dimensional pixel data</b>. In contrast, robot actions are much simpler, typically
-                    involving only <b>3D positions, rotations, and gripper states</b>. However, the <b>conditions</b>—such as images and
-                    language instructions—remain high-dimensional.
-
-                    Mini-Diffuser takes advantage of this asymmetry. Instead of generating one action per input, it generates <b>multiple
-                        action samples</b> for the same vision-language input. This allows the model to train <b>over 20× more
-                        efficiently</b> with <b>minimal extra cost</b>. To support this strategy, we introduce <b>lightweight architectural
-                        changes</b> that prevent interference between samples during training.
-
-                    Mini-Diffuser offers a <b>simple, fast, and effective recipe</b> for training generalist robot policies at scale.
+                    We propose the <b>Equivariant Triplane UNet</b>, a novel encoder that achieves equivariance to 90° rotations about the vertical axis. 
+                    Our model factorizes the volumetric grasping problem by projecting 3D data onto three canonical 2D planes and performing equivariant processing across two specialized branches. 
+                    The first branch operates on the table-plane projection and is equivariant to 90° rotations around the vertical axis. 
+                    The second branch jointly processes the two vertical-plane projections and is designed to be invariant to 90° rotations. 
+                    At the core of our architecture is a new <b>deformable steerable convolution</b>, which combines the benefits of traditional steerable convolutions with deformable convolutions, enabling the model to adapt its receptive field to local object geometry while preserving equivariance. 
+                    Thanks to its equivariant structure, the proposed method converges faster and achieves superior performance. 
+                    At the same time, its projection-based design significantly reduces computational and memory costs. We validate the effectiveness of our approach on the task of robotic grasping, which inherently benefits from rotational equivariance. By integrating our encoder into two state-of-the-art grasp planners, GIGA and IGD, we demonstrate that the equivariant versions achieve notably better performance with only a modest increase in computation.
                     </p>
                 </div>
             </div>
@@ -857,7 +844,7 @@
           </div>
 
                                                     <div class="content has-text-centered">
-                                                        <img src="./static/videos/idea.png" alt="input image" style="vertical-align:middle;margin:0px 0px" width="90%" />
+                                                        <img src="./static/videos/triequi.pdf" alt="input image" style="vertical-align:middle;margin:0px 0px" width="90%" />
                                                     </div>
 
 
