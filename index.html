@@ -11,7 +11,7 @@
   <meta name="keywords" content="robot learning, diffusion models, 3D vision, imitation learning, deep learning, robotics, manipulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Mini Diffuser: Fast Multi-task Diffusion Policy Training Using Two-level Mini-batches</title>
+  <title>Equivariance Makes Volumetric Grasping Great Again</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -843,9 +843,9 @@
             
           </div>
 
-                                                    <div class="content has-text-centered">
-                                                        <img src="./static/videos/triequi.pdf" alt="input image" style="vertical-align:middle;margin:0px 0px" width="90%" />
-                                                    </div>
+            <div class="content has-text-centered">
+                <img src="./static/videos/triequi.png" alt="input image" style="vertical-align:middle;margin:0px 0px" width="90%" />
+            </div>
 
 
         </div>
@@ -855,255 +855,34 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered has-text-centered">
                     <div class="column">
-                        <h2 class="title is-3">Highlights</h2>
+                        <h2 class="title is-3">Realworld Experiments</h2>
                         <br>
                     </div>
                 </div>
                 <div class="columns is-centered has-text-centered">
                     <div class="column">
-                        <video id="put_grapes" autoplay controls muted loop playsinline width="80%">
-                            <source src="./static/videos/demo.mp4" type="video/mp4">
+                        <video id="packed and pile" autoplay controls muted loop playsinline width="80%">
+                            <source src="./static/realworld/packed_and_pile.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="columns is-centered has-text-centered">
+                    <div class="column">
+                        <video id="adv" autoplay controls muted loop playsinline width="80%">
+                            <source src="./static/realworld/adv.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
             </div>
         </section>
 
-    <section class="section">
-        <div class="container is-max-desktop">
-          <div class="columns is-centered has-text-centered">
-            <div class="column">
-                <h2 class="title is-3">Model Pipeline</h2>
-            </div>
-          </div>
-          <div class="columns is-centered has-text-centered">
-            <div class="column">
-                <div class="content has-text-justified">
-                    <p>
-<b>LEFT:</b> During training phase, B samples of the states form a Level-1 batch, where M noise actions are sampled independently
-under the same state conditions, building a Level-2 batch. Tokens are flattened and feed into a multi-layer model
-contains Masked attention module, local query module, and FiLM layers. <b>RIGHT:</b> During inference phase, denoising is applied
-only to the end-effector position. Rotation and gripper state are predicted separately via classification heads
-conditioned on the final denoised position.
-                    </p>
-                </div>
-            </div>
-          </div>
-        </div>
-    </section>
+
 
 
     <!-- hack to pull the below up vertically -->
     <span style="display:block; margin-top:-1.75em;"/>
 
 
-    <section class="section">
-        <!-- Zero Shot. -->
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column">
-                    <h2 class="title is-3">Simulation on RLBench</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                        We test on a multi-task setup of 18 manipulation tasks on RLBench. All models use 4 camera views and 100 expert demonstrations for each task. Mini Diffuser by far takes least time and memory to train, while
-                        maintain 95% of the performance of currently SOTA diffusion based model.
-                        </p>
-                    </div>
-
-                    <div class="content has-text-centered">
-                        <img src="./static/videos/bubble.png" alt="input image" style="vertical-align:middle;margin:0px 0px" width="55%"/>
-                    </div>
-
-<div class="content has-text-centered">
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/close_jar_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Close Jar</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/drag_block_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Drag Block</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/hang_cups_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Hang Cups</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/insert_peg_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Insert Peg</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/open_drawer_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Open Drawer</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/place_wine_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Place Wine</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/put_block_in_drawer_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Put Block in Drawer</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/put_cash_in_safe_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Put Cash in Safe</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/put_in_cupboard_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Put in Cupboard</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/screw_lightbulb_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Screw Lightbulb</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/slide_block_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Slide Block</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/sort_shape_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Sort Shape</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/stack_blocks_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Stack Blocks</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/stack_cups_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Stack Cups</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/sweep_dust_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Sweep Dust</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/take_meat_off_grill_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Take Meat off Grill</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/touch_button_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Touch Button</div>
-    </div>
-    <div class="video-wrapper">
-        <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-            <source src="./static/videos/rlbench/turn_tap_batch.mp4" type="video/mp4">
-        </video>
-        <div class="video-title">Turn Tap</div>
-    </div>
-</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <!-- Zero Shot. -->
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column">
-                    <h2 class="title is-3">Mini Diffuser Actor in the real world</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                        We train a multi-task Mini Diffuser Actor on 10 manipulation tasks in the real world to control a Franka Emika arm. All models use a single camera view and 10 demonstrations for each task. A single Mini Diffuser Actor is able to <b>(1) solve multimodal tasks in the real world. (2) solve different task given different language condition. </b>.
-                        </p>
-                    </div>
-
-                    <div class="content has-text-centered">
-                        <div class="video-wrapper-real">
-                            <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-                            <source src="./static/videos/realworld/cup_AVS.mp4"
-                                    type="video/mp4">
-                            </video>
-                            <div class="video-title">Stack Cups</div>
-                        </div>
-                        <div class="video-wrapper-real">
-                            <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-                            <source src="./static/videos/realworld/closebox_AVS.mp4"
-                                    type="video/mp4">
-                            </video>
-                            <div class="video-title">Close Box</div>
-                        </div>
-                        <div class="video-wrapper-real">
-                            <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-                            <source src="./static/videos/realworld/sort_AVS.mp4"
-                                    type="video/mp4">
-                            </video>
-                            <div class="video-title">Sort Objects</div>
-                        </div>
-                        <div class="video-wrapper-real">
-                            <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-                            <source src="./static/videos/realworld/opendrawer_AVS.mp4"
-                                    type="video/mp4">
-                            </video>
-                            <div class="video-title">Open Drawer</div>
-                        </div>
-
-                        <div class="video-wrapper-real">
-                            <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-                            <source src="./static/videos/realworld/fruit_AVS.mp4"
-                                    type="video/mp4">
-                            </video>
-                            <div class="video-title">Put Fruit in box</div>
-                        </div>
-                        <div class="video-wrapper-real">
-                            <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-                            <source src="./static/videos/realworld/grape_AVS.mp4"
-                                    type="video/mp4">
-                            </video>
-                            <div class="video-title">Put Grape in Drawer</div>
-                        </div>
-                        <div class="video-wrapper-real">
-                            <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-                            <source src="./static/videos/realworld/plug_AVS.mp4"
-                                    type="video/mp4">
-                            </video>
-                            <div class="video-title">Insert Plug</div>
-                        </div>
-                        <div class="video-wrapper-real">
-                            <video id="put_grapes" autoplay controls muted loop playsinline width="100%">
-                            <source src="./static/videos/realworld/stapler_AVS.mp4"
-                                    type="video/mp4">
-                            </video>
-                            <div class="video-title">Press Stapler</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer class="footer">
         <div class="container">
