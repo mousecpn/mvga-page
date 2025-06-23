@@ -7,7 +7,5 @@ Open `index.html` in any web browser to view the complete supplementary material
 
 ### Option 2: Individual Videos
 Alternatively, all videos can be found in the `static/videos/` folder and can be opened individually:
-- `static/videos/demo.mp4` - Highlights video
-- `static/videos/rlbench/` - RLBench simulation results
-- `static/videos/realworld/` - Real-world experiments
-
+- `static/videos/realworld/packed_and_pile.mp4` - Packed and Pile Scenes Video
+- `static/videos/realworld/adv.mp4` - Adversarial Scenes Video
