@@ -831,12 +831,12 @@
                 <div class="content has-text-justified">
                     <p>
                     We propose the <b>Equivariant Triplane UNet</b>, a novel encoder that achieves equivariance to 90° rotations about the vertical axis. 
-                    Our model factorizes the volumetric grasping problem by projecting 3D data onto three canonical 2D planes and performing equivariant processing across two specialized branches. 
+                    Our model factorizes the volumetric grasping problem <b></b>by projecting 3D data onto three canonical 2D planes and performing equivariant processing across two specialized branches</b>. 
                     The first branch operates on the table-plane projection and is equivariant to 90° rotations around the vertical axis. 
                     The second branch jointly processes the two vertical-plane projections and is designed to be invariant to 90° rotations. 
                     At the core of our architecture is a new <b>deformable steerable convolution</b>, which combines the benefits of traditional steerable convolutions with deformable convolutions, enabling the model to adapt its receptive field to local object geometry while preserving equivariance. 
                     Thanks to its equivariant structure, the proposed method converges faster and achieves superior performance. 
-                    At the same time, its projection-based design significantly reduces computational and memory costs. We validate the effectiveness of our approach on the task of robotic grasping, which inherently benefits from rotational equivariance. By integrating our encoder into two state-of-the-art grasp planners, GIGA and IGD, we demonstrate that the equivariant versions achieve notably better performance with only a modest increase in computation.
+                    At the same time, its projection-based design significantly <b>reduces computational and memory costs</b>. We validate the effectiveness of our approach on the task of robotic grasping, which inherently benefits from rotational equivariance. By integrating our encoder into two state-of-the-art grasp planners, GIGA and IGD, we demonstrate that the equivariant versions achieve notably better performance with only a modest increase in computation.
                     </p>
                 </div>
             </div>
@@ -853,6 +853,16 @@
 
     <section class="section">
         <div class="container is-max-desktop">
+        <div class="column">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+                <p>
+            If we transform the volumetric data under the C4 group, the transformation of XY plane features is equivariant, while XZ and YZ plane features do not transform equivariantly. 
+            As shown in Figure, there are a yellow cone and a blue box in the workspace. As the workspace rotates per 90°, the XY plane also rotates accordingly, while the XZ and YZ planes do not rotate. Every time the workspace rotates 90°, the YZ plane becomes the previous XZ plane, and the XZ plane becomes the flip of the previous YZ plane. 
+            And if we query a point feature from the workspace (the black star in Figure), from the XZ and YZ planes, we always query a feature with no object and a feature of the yellow cone. Thus, a sum of features from the XZ and YZ planes is invariant to C4 transformation. This observation allows us to identify the triplane features transformation under C4 group actions. 
+                </p>
+            </div>
+        </div>
 
           <div class="columns is-centered has-text-centered">
             <div class="column">
